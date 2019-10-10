@@ -7,7 +7,7 @@
     "start": "node index.js",
     "watch": "nodemon index.js",
     "test-watch": "jest --verbose --watchAll",
-    "test": "jest --verbose",
+    "test": "jest --verbose --detectOpenHandles",
     "lint": "eslint .",
     "startServer": "node ./Server/server.js",
     "startLogger": "node ./Logger/logger.js"
