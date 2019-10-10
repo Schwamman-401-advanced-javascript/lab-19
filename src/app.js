@@ -11,6 +11,8 @@ const notFound = require( './middleware/404.js' );
 const authRouter = require( './auth/router.js' );
 const catRouter = require('./routes/categories');
 const prodRouter = require('./routes/products');
+require('./middleware/q-logger');
+
 
 // Prepare the express app
 const app = express();

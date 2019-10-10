@@ -7,6 +7,7 @@
 ### Links and Resources
 * [submission PR](https://github.com/Schwamman-401-advanced-javascript/lab-19/pull/1)
 * [travis](https://www.travis-ci.com/Schwamman-401-advanced-javascript/lab-19)
+![Everything Running](./messageQueue.png)
 
 #### Documentation
 * [api docs](http://xyz.com) (API servers)

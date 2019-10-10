@@ -24,7 +24,7 @@ class Model {
     // If 1, return it as a plain object
     if (id) {
       let payload = this.schema.findOne({ _id: id});
-      eventHub.emit('create', payload);
+      eventHub.emit('read', payload);
       return payload;
     }
     // If 2, return it as an object like this:
@@ -32,10 +32,9 @@ class Model {
     else {
       let results = await this.schema.find({});
       let payload = { count: results.length, results: results};
-      eventHub.emit('create', payload);
-      return payload};
+      eventHub.emit('read', payload);
+      return payload;
     }
- 
   }
 
   /**
@@ -46,6 +45,7 @@ class Model {
   post(record) {
     // Call the appropriate mongoose method to create a new record
     let newRecord = new this.schema(record);
+    eventHub.emit('create', newRecord);
     return newRecord.save();
   }
 
@@ -57,6 +57,7 @@ class Model {
    */
   put(id, record) {
     // Call the appropriate mongoose method to update a record
+    eventHub.emit('update', record);
     return this.schema.findByIdAndUpdate(id, record, { new: true });
   }
 
@@ -67,6 +68,7 @@ class Model {
    */
   delete(id) {
     // Call the appropriate mongoose method to delete a record
+    eventHub.emit('delete', id);
     return this.schema.findByIdAndDelete(id);
   }
 
