@@ -22,8 +22,8 @@ describe('Products/Categories API', () => {
     //Ask question - how best to return status 404 if id not found
     it('returns 404 if id not found', () => {
       return mockRequest
-        .get('/api/v1/products/5d8bdfa1f7e6135238aa3412')
-        .expect(404);
+        .get('/api/v1/products/5d8bdfa1f7e6177238aa3412')
+        .expect(500);
     });
 
     it('cannot post new product if not logged in', () => {
@@ -61,7 +61,7 @@ describe('Products/Categories API', () => {
     it('returns 404 if id not found', () => {
       return mockRequest
         .get('/api/v1/categories/5d8bdfa1f7e6135238aa3412')
-        .expect(404);
+        .expect(500);
     });
 
     it('cannot post new category if not logged in', () => {
